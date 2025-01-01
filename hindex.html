@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Absurd</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .product {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px auto;
+            max-width: 300px;
+            border-radius: 8px;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenue sur Shop Absurd</h1>
+    <p>Les objets les plus inutiles et hilarants que vous ne pouvez pas acheter !</p>
+
+    <div class="product">
+        <h2>Baguette magique pour téléporter les moutons</h2>
+        <p>Prix : 1 000 €</p>
+        <button class="button" onclick="showPaymentForm()">Acheter maintenant</button>
+    </div>
+
+    <div id="payment-form" class="hidden">
+        <h2>Formulaire de paiement</h2>
+        <p>Veuillez entrer vos informations bancaires pour finaliser l'achat :</p>
+        <form onsubmit="prankMessage(event)">
+            <label for="card-number">Numéro de carte :</label><br>
+            <input type="text" id="card-number" name="card-number" required><br><br>
+            <label for="expiry">Date d'expiration :</label><br>
+            <input type="text" id="expiry" name="expiry" required><br><br>
+            <label for="cvv">CVV :</label><br>
+            <input type="text" id="cvv" name="cvv" required><br><br>
+            <button type="submit" class="button">Payer</button>
+        </form>
+    </div>
+
+    <div id="prank-message" class="hidden">
+        <h2>Haha, c'était une blague !</h2>
+        <p>Personne ne vend une baguette magique pour moutons. Bonne journée ! 😄</p>
+    </div>
+
+    <script>
+        function showPaymentForm() {
+            document.getElementById('payment-form').classList.remove('hidden');
+        }
+
+        function prankMessage(event) {
+            event.preventDefault();
+            document.getElementById('payment-form').classList.add('hidden');
+            document.getElementById('prank-message').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
